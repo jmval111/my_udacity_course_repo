@@ -7,7 +7,7 @@ This tool is use to report 3 areas of intrest: the top articles, the top authors
     Step 1 : Start your Vagrant VirtualBOX via your terminal using 'vagrant up' (Please refer to 'Built With' below for all software download links.)
     Step 2 : Once it is up a running log into your VirtualBox using 'vagrant ssh'
     Step 3 : You must then use 'cd /vagrant' to navigate to the shared folder hosting the newsdata.sql file is.
-    Step 4 : Once there, use 'psql -d news -f newsdata.sql' to instal file to said directory. Click here to download the [newsdata.sql](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip) file
+    Step 4 : Once there, use 'psql -d news -f newsdata.sql' to instal file to said directory. 
     Step 5 : As a tip (Please have psycopg2 install for use with Python and Python3)
     Step 6 : Finally, run the file using the 'python(3) newsdata.py' command.
 
@@ -76,6 +76,7 @@ This tool is use to report 3 areas of intrest: the top articles, the top authors
 
 ## Built With
 
+* Click here to download the [newsdata.sql](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip) file
 * [PYTHON](http://www.python.org/) - General-purpose programming language
 * [PostgreSQL](http://www.postgresql.org/) - The object-relational database system
 * [Vagrant](https://www.vagrantup.com) - The virtual machine environment
