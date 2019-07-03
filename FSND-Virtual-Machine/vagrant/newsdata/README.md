@@ -1,6 +1,6 @@
 # Reporting Tool 
 
-This tool is use to report 3 areas of intrest: the top articles, the top authors, and days where requests errors are more than 1%. The Python script uses psycopg2 to query a mock PostgreSQL database for a fictional news website. 
+This tool is use to report 3 areas of intrest: what are the top articles, what are the top authors, and days where requests errors exceed more than 1%. The Python script uses psycopg2 to query a mock PostgreSQL database newsdata.sql for a fictional news website.  The sql files can be 
 
 ## Getting Started
 
