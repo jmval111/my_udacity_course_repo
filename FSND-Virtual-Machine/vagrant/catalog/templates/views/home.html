@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block rightcontent %}
+<div id="right-content"> 
+<h1>Genres</h1>
+{% if current_user.is_authenticated %}
+    <div id="addtrk"><a class="" href="{{url_for('main.addGenre')}}">Add Genre</a></div>
+{% endif %}
+        <ul>
+        {% for genre in genre %}
+            <li><a id="{{ genre.id }}" href="{{url_for('main.showTracks', genre_name = genre.name, genre_id = genre.id)}}">{{ genre.name }}</a></li>
+        {% endfor %}
+        </ul>
+</div>
+{% endblock %}
+{% block leftcontent %}
+<div id="left-content">
+    <h1>Latest Tracks</h1>
+    {% if current_user.is_authenticated %}
+        <div id="addtrk"><a class="" href="{{url_for('main.addTrack')}}">Add track</a></div>
+    {% endif %}
+        <div id="track_list">
+            <ul class="">
+            {% for track in track %}
+                <li class="">{{ track.name }} ({{ track.gen_id }})</li>
+            {% else %}
+                <li><em>No tracks found.</em></li>
+            {% endfor %}
+            </ul>
+        </div>
+</div>
+{% endblock %}

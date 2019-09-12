@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block header %}
+  <h1>{% block title %}Login{% endblock %}</h1>
+{% endblock %}
+
+{% block fullcontent %}
+<div id="full-content">
+    <form action="/action_page.php">
+        <div class="row">
+          <div class="col-25">
+            <label for="Tname">Track Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="tname" name="trackname" placeholder="Track name..">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="Aname">Artist Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="aname" name="artistname" placeholder="Artist name..">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="genre">Genre</label>
+          </div>
+          <div class="col-75">
+            <select id="genres" name="genres">
+              <option value="Blues">Blues</option>
+              <option value="Classical">Classical</option>
+              <option value="Country">Country</option>
+              <option value="Funk">Funk</option>
+              <option value="Hip-Hop">Hip-Hop</option>
+              <option value="Pop">Pop</option>
+              <option value="Reggae">Reggae</option>
+              <option value="RnB">RnB</option>
+              <option value="Rock">Rock</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="history">History</label>
+          </div>
+          <div class="col-75">
+            <textarea id="history" name="history" placeholder="Write something.." style="height:200px"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <input type="submit" value="Add Track">
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block fullcontent %}
+<div id="full-content">
+    <h1 class="title">
+        Welcome, {{ name }}!
+    </h1>
+    <div>
+        <ul>
+            <li><a href="{{url_for('main.home')}}">Songbase Registry</a></li>
+            <li><a class="" href="{{url_for('main.addGenre')}}">Add Genre</a></li>
+            <li><a class="" href="{{url_for('main.addTrack')}}">Add track</a></li>
+            <li>
+                <form>
+                    <input type="text" id="npass" name="npass" placeholder="Set New Password...">
+                    <input type="submit" value="Submit">
+                </form>
+            </li>
+            <li>Delete Account</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

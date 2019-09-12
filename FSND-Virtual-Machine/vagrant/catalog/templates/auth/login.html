@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block header %}
+  <h1>{% block title %}Login{% endblock %}</h1>
+{% endblock %}
+
+{% block fullcontent %}
+<div id="full-content">
+  <h1 class="title">Login</h1>
+    <div class="regdiv">
+      <form id="login-form" method="POST" action="login">
+        <input id="email" type="email" name="email" placeholder="Your Email" autofocus="" required>
+        <input id="password" type="password" name="password" placeholder="Your Password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember"> Remember me
+          </label>
+        </div>
+        <input id="submit" type="submit" value="LOGIN">
+      </form>
+      <div>
+          <p> Need to registered? Go to <a href="{{ url_for('auth.register') }}">register</a>. </p>
+      </div>
+    </div>
+</div>
+{% endblock %}

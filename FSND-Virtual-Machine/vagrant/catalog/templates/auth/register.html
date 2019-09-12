@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block fullcontent %}
+<div id="full-content">
+    <h1 class="title">Register</h1>
+        <div class="regdiv">
+            <div>
+                Already registered? Go to <a href="{{ url_for('auth.login') }}">login</a>.
+            </div>
+            <form method="POST" action="/register">
+                <input id="email" type="email" name="email" placeholder="Email" autofocus="">
+                <input id="username" type="text" name="name" placeholder="Name" autofocus="">
+                <input id="password" type="password" name="password" placeholder="Password">
+                <input id="submit" type="submit" value="Register">
+            </form>
+        </div>
+</div>
+{% endblock %}
