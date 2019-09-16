@@ -1,11 +1,9 @@
 from datetime import datetime
-from sqlalchemy.ext.declarative import declarative_base
 from werkzeug.security import generate_password_hash, check_password_hash
-from sqlalchemy import insert, DateTime, Column, ForeignKey, Integer, String, Table
-from sqlalchemy.orm import relationship, sessionmaker
-from sqlalchemy import create_engine, UniqueConstraint
+from sqlalchemy.orm import relationship
 from flask_login import UserMixin
 from . import db
+
 
 class Genre(db.Model):
     __tablename__ = 'genre'
@@ -18,6 +16,7 @@ class Genre(db.Model):
     def __init__(self, name):
         self.name = name
 
+
 class Track(db.Model):
     __tablename__ = 'track'
 
@@ -25,7 +24,7 @@ class Track(db.Model):
     name = db.Column(db.String(250), nullable=False)
     slug = db.Column(db.String(250), nullable=False)
     description = db.Column(db.String(250))
-    date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow) 
+    date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     gen_id = db.Column(db.Integer, db.ForeignKey('genre.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     # user = relationship("User", backref="track")
@@ -78,3 +77,17 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
+
+
+def init_db(self):
+    db.create_all()
+
+    # Create a test user
+    admin_user = User('admin', 'admin@email.com', 'password')
+    admin_user.display_name = 'Admin'
+    db.session.add(admin_user)
+    db.session.commit()
+
+
+if __name__ == '__main__':
+    init_db()

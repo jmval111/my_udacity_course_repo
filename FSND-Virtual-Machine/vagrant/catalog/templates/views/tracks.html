@@ -17,7 +17,7 @@
 {% block leftcontent %}
 <div id="left-content">
 {% for gen_title in gen_title %}
-    <h1>{{ gen_title.name }} track list: ({{ trk_count }} tracks)</h1>
+    <h1>{{ gen_title.name }} track list: ({{ trk_count|first|last }} tracks)</h1>
 {% endfor %}
 {% if current_user.is_authenticated %}
     <div id="addtrk"><a class="" href="{{url_for('main.addTrack')}}">Add track</a></div>
@@ -27,7 +27,7 @@
             <li class="">
             {% for full in full %}
             <li class="">
-                <a class="" href="{{url_for('main.trackInfo', genre_name, track_name = full.slug, track_id = full.id )}}">{{ full.name }} track page</a>
+                <a class="" href="{{url_for('main.trackInfo', genre_name = full|first, track_name = full.slug, track_id = full.id )}}">{{ full.name }} track page</a>
             </li>
             {% else %}
             <li><em>No tracks found.</em></li>

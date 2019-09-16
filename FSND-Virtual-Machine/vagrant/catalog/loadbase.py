@@ -11,91 +11,91 @@ session = DBSession()
 # This Json list adds the Genres to the database.
 gen_list = [
     {
-        "name"  : "Blues"
+        "name": "Blues"
     },
     {
-        "name" : "Classical"
+        "name": "Classical"
     },
     {
-        "name" : "Rock"
+        "name": "Rock"
     },
     {
-        "name" : "Hip-hop"
+        "name": "Hip-hop"
     },
     {
-        "name" : "Country"
+        "name": "Country"
     },
     {
-        "name" : "Funk"
+        "name": "Funk"
     },
     {
-        "name" : "Pop"
+        "name": "Pop"
     },
     {
-        "name" : "Reggae"
+        "name": "Reggae"
     },
     {
-        "name" : "RnB"
+        "name": "RnB"
     }
 ]
 
 # This Json list adds the track
 track_list = [
     {
-        "name" : "Hoochi Choochi Man",
-        "slug" : "hoochi-choochi-man",
-        "description" : '''
+        "name": "Hoochi Choochi Man",
+        "slug": "hoochi-choochi-man",
+        "description": '''
                         "Hoochie Coochie Man" (originally titled "I'm Your Hoochie Cooche Man") is a blues standard written by Willie Dixon and first recorded by Muddy Waters in 1954. The song makes reference to hoodoo folk magic elements and makes novel use of a stop-time musical arrangement. It became one of Waters' most popular and identifiable songs and helped secure Dixon's role as Chess Records' chief songwriter.
                         ''',
-        "gen_id" : 1, 
-        "user_id" : 1
+        "gen_id": 1, 
+        "user_id": 1
     },
     {
-        "name" : "Nine Below Zero",
-        "slug" : "nine-below-zero",
-        "description" : "This is where the information goes.",
-        "gen_id" : 1, 
-        "user_id" : 1
+        "name": "Nine Below Zero",
+        "slug": "nine-below-zero",
+        "description": "This is where the information goes.",
+        "gen_id": 1, 
+        "user_id": 1
     },
     {
-        "name" : "Blues 3",
-        "slug" : "blues-3",
-        "description" : "This is where the information goes.",
-        "gen_id" : 1, 
-        "user_id" : 1
+        "name": "Blues 3",
+        "slug": "blues-3",
+        "description": "This is where the information goes.",
+        "gen_id": 1, 
+        "user_id": 1
     },
     {
-        "name" : "Flight of the Bumblebee",
-        "slug" : "flight-of-the-bumblebee",
-        "description" : "This is where the information goes.",
-        "gen_id" : 2, 
-        "user_id" : 1
+        "name": "Flight of the Bumblebee",
+        "slug": "flight-of-the-bumblebee",
+        "description": "This is where the information goes.",
+        "gen_id": 2, 
+        "user_id": 1
     },
     {
-        "name" : "Classical 2",
-        "slug" : "classical-2",
-        "description" : "This is where the information goes.",
-        "gen_id" : 2, 
-        "user_id" : 1
+        "name": "Classical 2",
+        "slug": "classical-2",
+        "description": "This is where the information goes.",
+        "gen_id": 2, 
+        "user_id": 1
     },
     {
-        "name" : "Achy Breaky Heart",
-        "slug" : "achy-breaky-heart",
-        "description" : "This is where the information goes.",
-        "gen_id" : 5, 
-        "user_id" : 1
+        "name": "Achy Breaky Heart",
+        "slug": "achy-breaky-heart",
+        "description": "This is where the information goes.",
+        "gen_id": 5,
+        "user_id": 1
     },
     {
-        "name" : "The Devil Went Down to Georgia",
-        "slug" : "the-devel-wenth-down-to-georgia",
-        "description" : "This is where the information goes.",
-        "gen_id" : 5, 
-        "user_id" : 1
+        "name": "The Devil Went Down to Georgia",
+        "slug": "the-devel-wenth-down-to-georgia",
+        "description": "This is where the information goes.",
+        "gen_id": 5, 
+        "user_id": 1
     },
     {
-        "name" : "Funk 1",
-        "slug" : "funk-1",
-        "description" : "This is where the information goes.",
+        "name": "Funk 1",
+        "slug": "funk-1",
+        "description": "This is where the information goes.",
         "gen_id" : 6, 
         "user_id" : 1
     },
