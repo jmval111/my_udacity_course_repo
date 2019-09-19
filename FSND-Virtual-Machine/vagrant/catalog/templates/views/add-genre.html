@@ -22,6 +22,7 @@
               <option value="{{ genre.name }}">{{ genre.name }}</option>
               {% endfor %}
           </select>
+        {% if current_user.is_authenticated %}
           <div>
             <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
           </div>
