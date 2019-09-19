@@ -1,9 +1,12 @@
 #! /usr/bin/python3
-from .models import Genre, Track
-from flask import Blueprint, render_template,\
-    redirect, url_for, request, jsonify
+from models import Genre, Track  # , User
+from flask import Blueprint, flash, render_template, \
+    redirect, url_for, request, abort  # , jsonify
 from sqlalchemy import desc, func
-from . import quesession
+# from sqlalchemy import create_engine
+# from sqlalchemy.orm import scoped_session, sessionmaker
+from flask_login import login_required, current_user
+from app import db, quesession
 
 
 main = Blueprint(
@@ -69,7 +72,7 @@ def trackInfo(genre_name, track_name, track_id):
     )
 
 
-@main.route('/songbase/add-genre')
+@main.route('/songbase/add/genre')
 def addGenre():
     genre = Genre.query.all()
     track = Track.query.all()
@@ -78,10 +81,41 @@ def addGenre():
         genre=genre,
         track=track
     )
+
+
+@main.route('/genre', methods=['POST'])
+def addGenre_post():
+    name = request.form.get('name')
+
+    genre = Genre.query.filter_by(name=name).first()
+
+    if genre:
+        flash('Genre already exists')
+        return redirect(url_for('main.addGenre'))
+
+    new_genre = Genre(name=name)
+
+    db.session.add(new_genre)
+    db.session.commit()
+
+    return redirect(url_for('main.home'))
     # return "page to add a track. Task 1 complete!"
 
+
+@main.route("/genre/<int:genre_id>/delete", methods=['POST'])
+@login_required
+def delete_genre(genre_id):
+    genre = Genre.query.get_or_404(genre_id)
+    if current_user:
+        abort(403)
+    db.session.delete(genre)
+    db.session.commit()
+    flash('Genre deleted!', 'success')
+    return redirect(url_for('home'))
+
+
 # Set route for addTrack function here
-@main.route('/songbase/add-track')
+@main.route('/songbase/add/track')
 def addTrack():
     genre = Genre.query.all()
     track = Track.query.all()

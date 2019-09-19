@@ -20,7 +20,7 @@
     <h1>{{ gen_title.name }} track list: ({{ trk_count|first|last }} tracks)</h1>
 {% endfor %}
 {% if current_user.is_authenticated %}
-    <div id="addtrk"><a class="" href="{{url_for('main.addTrack')}}">Add track</a></div>
+    <div id="addtrk"><a class="" href="{{url_for('main.addTrack')}}">Add Track</a></div>
 {% endif %}
     <div id="track_list">
         <ul class="">

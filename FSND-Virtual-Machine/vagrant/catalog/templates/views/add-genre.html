@@ -5,17 +5,31 @@
 
 {% block fullcontent %}
 <div id="full-content">
-    <form action="/action_page.php">
+    <form  method="POST" action="/genre">
         <div class="row">
-          <div class="col-25">
-            <label for="Tname">Genre</label>
-          </div>
-          <div class="col-75">
-            <input type="text" id="gname" name="genrename" placeholder="Genre name..">
+          <div class="col-100">
+            <label for="name">Add a Genre</label>
+            <input type="text" id="gname" name="name" placeholder="Genre name.." autofocus="" required>
           </div>
         </div>
+        <div class="col-100">
+          -- and / or --
+        </div>
+        <div class="col-100">
+          <label for="name">Remove a Genre</label>
+          <select id="genres" name="genres">
+              {% for genre in genre %}
+              <option value="{{ genre.name }}">{{ genre.name }}</option>
+              {% endfor %}
+          </select>
+          <div>
+            <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
+          </div>
+        {% endif %}
+        </div>
         <div class="row">
-          <input type="submit" value="Add Genre">
+          <a class="can_but" href="{{url_for('main.home')}}">Cancel</a>
+          <input type="submit" value="Submit">
         </div>
     </form>
 </div>

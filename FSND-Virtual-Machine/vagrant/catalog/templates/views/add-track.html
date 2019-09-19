@@ -28,15 +28,9 @@
           </div>
           <div class="col-75">
             <select id="genres" name="genres">
-              <option value="Blues">Blues</option>
-              <option value="Classical">Classical</option>
-              <option value="Country">Country</option>
-              <option value="Funk">Funk</option>
-              <option value="Hip-Hop">Hip-Hop</option>
-              <option value="Pop">Pop</option>
-              <option value="Reggae">Reggae</option>
-              <option value="RnB">RnB</option>
-              <option value="Rock">Rock</option>
+              {% for genre in genre %}
+              <option value="{{ genre.name }}">{{ genre.name }}</option>
+              {% endfor %}
             </select>
           </div>
         </div>
@@ -49,6 +43,7 @@
           </div>
         </div>
         <div class="row">
+          <a class="can_but" href="{{url_for('main.home')}}">Cancel</a>
           <input type="submit" value="Add Track">
         </div>
     </form>

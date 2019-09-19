@@ -201,6 +201,11 @@ body {
     margin-top: 6px;
   }
   
+  .can_but {
+      float: left;
+      margin: 10px;
+  }
+
   /* Clear floats after the columns */
   .row:after {
     content: "";

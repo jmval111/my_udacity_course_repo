@@ -1,5 +1,13 @@
 {
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
-    "python.linting.enabled": true
+    "python.linting.enabled": true,
+    "sqltools.connections": [
+        {
+            "database": ".\\FSND-Virtual-Machine\\vagrant\\catalog\\songbase\\music.db",
+            "dialect": "SQLite",
+            "name": "songbase"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
 }
