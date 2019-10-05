@@ -10,6 +10,16 @@ body {
     background: #9e9e9e;
 }
 
+.left {
+    float: left;
+    width: 50%;
+}
+
+.right {
+    float: right;
+    width: 50%;
+}
+
 #title-bar {
     background: #800000;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 

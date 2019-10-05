@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block header %}
+  <h1>{% block title %}Login{% endblock %}</h1>
+{% endblock %}
+
+{% block fullcontent %}
+<div id="full-content" style="display: grid;">
+  <div>
+    <form  method="POST" action="/genre">
+        <div class="left">
+          <div class="col-100">
+            <label for="name">Edit Genre</label>
+            <input type="text" id="gname" name="name" placeholder="Genre name.." autofocus="" required>
+          </div>
+        </div>
+        <div class="right">
+          <div class="row">
+            <input type="submit" value="Add">
+          </div>
+        </div>
+    </form>
+  </div>
+  <div style="text-align: center;">
+    <p>-- OR --</p>
+  </div>
+  <div>
+    <form  method="POST" action="/delete">
+      <div class="left">
+        <label for="name">Remove a Genre</label>
+        <select id="genresId" name="genres">
+        {% for genre in genre %}
+          <option value="{{ genre.id }}">{{ genre.name }}</option>
+        {% endfor %}
+        </select>
+      </div>
+      <div>
+        <input type="submit" class="right" value="Delete">
+      </div>
+    </form>
+  </div>
+    <div>
+        <a class="" href="{{url_for('main.home')}}">Cancel</a>
+    </div>
+</div>
+{% endblock %}

@@ -3,7 +3,7 @@ pip install flask-migrate
 
 db.metadata.clear()
 
-~/GitHub/udacity-git-course/FSND-Virtual-Machine/vagrant/
+cd FSND-Virtual-Machine/vagrant/catalog
 
 create database:
 >>> from catalog import db, create_app

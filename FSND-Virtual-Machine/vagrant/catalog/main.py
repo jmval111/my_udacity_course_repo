@@ -72,18 +72,19 @@ def trackInfo(genre_name, track_name, track_id):
     )
 
 
-@main.route('/songbase/add/genre')
+@main.route('/songbase/edit/genre')
 def addGenre():
     genre = Genre.query.all()
     track = Track.query.all()
     return render_template(
-        'views/add-genre.html',
+        'views/edit-genre.html',
         genre=genre,
         track=track
     )
 
 
 @main.route('/genre', methods=['POST'])
+@login_required
 def addGenre_post():
     name = request.form.get('name')
 
@@ -99,20 +100,23 @@ def addGenre_post():
     db.session.commit()
 
     return redirect(url_for('main.home'))
-    # return "page to add a track. Task 1 complete!"
 
 
-@main.route("/genre/<int:genre_id>/delete", methods=['POST'])
+@main.route('/delete', methods=['POST'])
 @login_required
-def delete_genre(genre_id):
-    genre = Genre.query.get_or_404(genre_id)
-    if current_user:
-        abort(403)
-    db.session.delete(genre)
-    db.session.commit()
-    flash('Genre deleted!', 'success')
-    return redirect(url_for('home'))
+def delete_genre():
 
+    id = request.form.get('genres')
+
+    genre = Genre.query.filter_by(id=id).first()
+    # return(str(genre))
+    if genre:
+        db.session.delete(genre)
+        db.session.commit()
+        flash('Genre deleted!', 'success')
+
+    return redirect(url_for('main.home'))
+    # return "page to add a track. Task 1 complete!"
 
 # Set route for addTrack function here
 @main.route('/songbase/add/track')
