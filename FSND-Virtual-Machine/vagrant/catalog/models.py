@@ -82,7 +82,7 @@ class User(UserMixin, db.Model):
 
 # if __name__ == '__main__':
 #     db.metadata.clear()
-#    db.create_all(app=create_app())
+#     db.create_all(app=create_app())
 
 #    gen_list = Genre[
 #        {"name": "Blues"},

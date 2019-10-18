@@ -20,7 +20,14 @@
 {% block leftcontent %}
 <div id="left-content">
 {% if current_user.is_authenticated %}
-    <div id="addtrk"><a class="" href="{{url_for('main.addTrack')}}">Edit This Track</a></div>
+{% for track in track %}
+    <div id="addtrk"><a class="" href="{{url_for('main.editTrack', track_slug = track.slug, track_id = track.id)}}">Edit This Track</a></div>
+{% endfor %}
+{% for track in track %}
+    <form  method="POST" action="{{ url_for('main.deleteTrack', track_id=track.id) }}">
+{% endfor %}
+        <input class="" type="submit" value="Delete">
+    </form>
 {% endif %}
     <div id="track_list">
         <div class="">

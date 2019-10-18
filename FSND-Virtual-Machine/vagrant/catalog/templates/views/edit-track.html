@@ -5,6 +5,53 @@
 
 {% block fullcontent %}
 <div id="full-content">
-
+  <form method="POST" action="/track">
+      <div class="row">
+        <div class="col-25">
+          <label for="Tname">Track Name</label>
+        </div>
+        <div class="col-75">
+          {% for track in track %}
+          <input type="text" id="tname" name="name" value="{{ track.name }}">
+          {% endfor %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="slug">slug</label>
+        </div>
+        <div class="col-75">
+          {% for track in track %}
+          <input type="text" id="slugid" name="slug" value="{{ track.slug }}">
+          {% endfor %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="genre">Genre</label>
+        </div>
+        <div class="col-75">
+          <select id="genres" name="gen_id">
+            {% for genre in genre %}
+            <option value="{{ genre.id }}">{{ genre.name }}</option>
+            {% endfor %}
+          </select>
+        </div> 
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="description">Description</label>
+        </div>
+        <div class="col-75">
+          {% for track in track %}
+          <textarea id="description" name="description" style="height:200px">{{ track.description }}</textarea>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="row">
+        <a class="can_but" href="{{url_for('main.home')}}">Cancel</a>
+        <input type="submit" value="Update">
+      </div>
+  </form>
 </div>
 {% endblock %}
