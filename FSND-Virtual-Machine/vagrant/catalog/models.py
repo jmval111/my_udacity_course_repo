@@ -32,13 +32,11 @@ class Track(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     # user = relationship("User", backref="track")
 
-    def __init__(self, name, slug, description, gen_id, user_id, date):
+    def __init__(self, name, slug, description, gen_id):
         self.name = name
         self.slug = slug
         self.description = description
-        self.date = date
         self.gen_id = gen_id
-        self.user_id = user_id
 
 
 class User(UserMixin, db.Model):

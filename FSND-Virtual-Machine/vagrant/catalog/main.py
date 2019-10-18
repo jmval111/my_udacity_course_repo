@@ -120,9 +120,11 @@ def delete_genre():
 
 # Set route for addTrack function here
 @main.route('/songbase/add/track')
+@login_required
 def addTrack():
     genre = Genre.query.all()
     track = Track.query.all()
+
     return render_template(
         'views/add-track.html',
         genre=genre,
@@ -130,13 +132,42 @@ def addTrack():
     )
     # return "page to add a track. Task 1 complete!"
 
+
+@main.route('/track', methods=['POST'])
+@login_required
+def addTrack_post():
+    name = request.form.get('name')
+    slug = request.form.get('slug')
+    description = request.form.get('description')
+    gen_id = request.form.get('gen_id')
+
+    track = Genre.query.filter_by(name=name).first()
+
+    if track:
+        flash('Track already exists')
+        return redirect(url_for('main.addTrack'))
+
+    new_track = Track(
+        name=name,
+        slug=slug,
+        description=description,
+        gen_id=gen_id
+    )
+
+    db.session.add(new_track)
+    db.session.commit()
+
+    return redirect(url_for('main.home'))
+
+
 # Set route for editTrack function here
 @main.route('/songbase/genre/<int:genre_id>/track/<int:track_id>/edit/')
+@login_required
 def editTrack(genre_id, track_id):
     genre = Genre.query.all()
     track = Track.query.all()
     return render_template(
-        'views/edit.html',
+        'views/edit-track.html',
         genre=genre,
         track=track
     )
@@ -144,12 +175,16 @@ def editTrack(genre_id, track_id):
 
 # Set route for deleteTrack function here
 @main.route('/songbase/genre/<int:genre_id>/track/<int:track_id>/delete/')
+@login_required
 def deleteTrack(genre_id, track_id):
-    genre = Genre.query.all()
-    track = Track.query.all()
-    return render_template(
-        'views/delete.html',
-        genre=genre,
-        track=track
-    )
+    id = request.form.get('genres')
+
+    track = Track.query.filter_by(id=id).first()
+    # return(str(genre))
+    if track:
+        db.session.delete(track)
+        db.session.commit()
+        flash('Track deleted!', 'success')
+
+    return redirect(url_for('main.home'))
     # return "page to delete a track. Task 3 complete!"

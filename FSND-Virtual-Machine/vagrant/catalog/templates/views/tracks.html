@@ -3,7 +3,7 @@
 <div id="right-content"> 
     <h1>Genres</h1>
     {% if current_user.is_authenticated %}
-    <div id="addtrk"><a class="" href="{{url_for('main.addGenre')}}">Add Genre</a></div>
+    <div id="addtrk"><a class="" href="{{url_for('main.addGenre')}}">Edit Genre</a></div>
     {% endif %}
         <ul>
             {% for gen_title in gen_title %}
@@ -27,7 +27,7 @@
             <li class="">
             {% for full in full %}
             <li class="">
-                <a class="" href="{{url_for('main.trackInfo', genre_name = full|first, track_name = full.slug, track_id = full.id )}}">{{ full.name }} track page</a>
+                <a class="" href="{{url_for('main.trackInfo', genre_name = full|first, track_name = full.slug, track_id = full.id )}}">{{ full.name }}</a>
             </li>
             {% else %}
             <li><em>No tracks found.</em></li>

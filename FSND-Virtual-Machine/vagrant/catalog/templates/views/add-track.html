@@ -5,21 +5,21 @@
 
 {% block fullcontent %}
 <div id="full-content">
-    <form action="/action_page.php">
+    <form method="POST" action="/track">
         <div class="row">
           <div class="col-25">
             <label for="Tname">Track Name</label>
           </div>
           <div class="col-75">
-            <input type="text" id="tname" name="trackname" placeholder="Track name..">
+            <input type="text" id="tname" name="name" placeholder="Track Name">
           </div>
         </div>
         <div class="row">
           <div class="col-25">
-            <label for="Aname">Artist Name</label>
+            <label for="slug">slug</label>
           </div>
           <div class="col-75">
-            <input type="text" id="aname" name="artistname" placeholder="Artist name..">
+            <input type="text" id="slugid" name="slug" placeholder="slug-name">
           </div>
         </div>
         <div class="row">
@@ -27,19 +27,19 @@
             <label for="genre">Genre</label>
           </div>
           <div class="col-75">
-            <select id="genres" name="genres">
+            <select id="genres" name="gen_id">
               {% for genre in genre %}
-              <option value="{{ genre.name }}">{{ genre.name }}</option>
+              <option value="{{ genre.id }}">{{ genre.name }}</option>
               {% endfor %}
             </select>
-          </div>
+          </div> 
         </div>
         <div class="row">
           <div class="col-25">
-            <label for="history">History</label>
+            <label for="description">Description</label>
           </div>
           <div class="col-75">
-            <textarea id="history" name="history" placeholder="Write something.." style="height:200px"></textarea>
+            <textarea id="description" name="description" placeholder="Write something.." style="height:200px"></textarea>
           </div>
         </div>
         <div class="row">

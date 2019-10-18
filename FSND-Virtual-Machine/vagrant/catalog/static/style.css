@@ -171,12 +171,21 @@ body {
     font-size: 20px;
 }
 
-  label {
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
     padding: 12px 12px 12px 0;
     display: inline-block;
-  }
-  
-  input[type=submit] {
+}
+
+input[type=submit] {
+    cursor: pointer;
     width: 100px;
     text-align: center;
     font-size: 16px;
@@ -189,39 +198,45 @@ body {
     margin: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
                 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  
-  /* input[type=text]:active {
+}
 
-  } */
+/* input[type=text]:active {
 
-  input[type=submit]:hover {
+} */
+
+input[type=submit]:hover {
     background-color: #45a049;
-  }
-  
-  .col-25 {
+}
+
+.col-25 {
     float: left;
     width: 25%;
     margin-top: 6px;
-  }
-  
-  .col-75 {
+}
+
+.col-75 {
     float: left;
     width: 75%;
     margin-top: 6px;
-  }
-  
-  .can_but {
-      float: left;
-      margin: 10px;
-  }
+}
 
-  /* Clear floats after the columns */
-  .row:after {
+.can_but {
+    float: left;
+    margin: 10px;
+}
+
+.row:after {
     content: "";
     display: table;
     clear: both;
-  }
+}
+
+@media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
 
 #footer {
     position: fixed;

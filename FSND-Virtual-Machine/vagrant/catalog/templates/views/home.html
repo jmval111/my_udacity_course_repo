@@ -3,7 +3,7 @@
 <div id="right-content"> 
 <h1>Genres</h1>
 {% if current_user.is_authenticated %}
-    <div id="addtrk"><a class="" href="{{url_for('main.addGenre')}}">Add Genre</a></div>
+    <div id="addtrk"><a class="" href="{{url_for('main.addGenre')}}">Edit Genre</a></div>
 {% endif %}
         <ul>
         {% for genre in genre %}
@@ -11,7 +11,7 @@
         {% endfor %}
         </ul>
 </div>
-{% endblock %}
+{% endblock %} 
 {% block leftcontent %}
 <div id="left-content">
     <h1>Latest Tracks</h1>
